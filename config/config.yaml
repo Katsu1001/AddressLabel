@@ -1,0 +1,63 @@
+# POSSIM ハガキ宛名印刷自動化システム 設定ファイル
+# Postcard Address Automation System Configuration
+
+# 入力ファイル設定
+input:
+  file_path: "data/input/POSSIM_営業リスト_優先順位付き.xlsx"
+  sheet_name: "営業リスト"
+
+# 出力ファイル設定
+output:
+  pdf_path: "data/output/possim_宛名ラベル.pdf"
+  csv_path: "data/output/possim_宛名データ.csv"
+  report_path: "data/output/possim_品質レポート.txt"
+
+# データ処理設定
+processing:
+  # 国外住所を除外する
+  exclude_foreign_address: true
+
+  # 重複住所を除外する
+  exclude_duplicate_address: false
+
+  # 郵便番号欠損データを除外する
+  exclude_missing_postal_code: true
+
+# PDF生成設定
+pdf:
+  font_name: "HeiseiMin-W3"
+  page_size: "A4"
+  label_layout: "10面"  # 2列×5行
+
+  # ラベルサイズ（mm）
+  label_width: 99.0
+  label_height: 57.0
+
+  # マージン（mm）
+  margin_top: 10.0
+  margin_left: 10.0
+
+# CSV生成設定
+csv:
+  encoding: "shift_jis"  # Word差し込み印刷用
+  fallback_encoding: "utf-8-sig"  # Shift_JISで表現できない場合のフォールバック
+
+# データクレンジング設定
+cleansing:
+  # 郵便番号の正規化
+  normalize_postal_code: true
+
+  # 住所の標準化
+  normalize_address: true
+
+  # 氏名に「様」を自動付与
+  add_sama_suffix: true
+
+  # 国外住所検出のしきい値（ローマ字が全体の何%以上で国外と判定するか）
+  foreign_address_threshold: 0.5
+
+# ログ設定
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  output_to_file: false
+  log_file_path: "logs/possim_automation.log"
