@@ -1,0 +1,73 @@
+# POSSIM ハガキ宛名印刷自動化システム
+# .gitignore
+
+# 個人情報を含むデータファイル
+data/input/*.xlsx
+data/input/*.xls
+data/input/*.csv
+data/output/*.pdf
+data/output/*.csv
+data/output/*.txt
+
+# ただし、ディレクトリ構造は保持
+!data/input/.gitkeep
+!data/output/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+logs/
+*.log
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS
+Thumbs.db
+Desktop.ini
